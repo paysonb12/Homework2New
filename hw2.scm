@@ -123,18 +123,18 @@
 ; Returns a list of all the place names common to two states.
 ; placeName -- is the text corresponding to the name of the place
 ; zips -- the zipcode DB
-(define (getCommonPlaces state1 state2 zips)
-  (let ((places1 (getPlacesByState state1 zips))
-        (places2 (getPlacesByState state2 zips)))
-    (filter (lambda (place) (member place places2)) places1)))
+;(define (getCommonPlaces state1 state2 zips)
+  ;(let ((places1 (getPlacesByState state1 zips))
+        ;(places2 (getPlacesByState state2 zips)))
+   ; (filter (lambda (place) (member place places2)) places1)))
 
-(define (getPlacesByState state zips)
-  (map cadr (filter (lambda (entry) (equal? (caddr entry) state)) zips)))
+;(define (getPlacesByState state zips)
+ ; (map cadr (filter (lambda (entry) (equal? (caddr entry) state)) zips)))
 
-
+; couldnt figure it out :/
 
 (line "getCommonPlaces")
-(mydisplay (getCommonPlaces "OH" "MI" zipcodes))
+;(mydisplay (getCommonPlaces "OH" "MI" zipcodes))
 (line "getCommonPlaces")
 ; ---------------------------------------------
 
