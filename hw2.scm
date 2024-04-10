@@ -188,14 +188,10 @@
 ; filters -- list of predicates to apply to the individual elements
 
 (define (filterList lst filters)
-  (define (all? pred lst)
-    (cond ((null? lst) #t)
-          ((pred (car lst)) (all? pred (cdr lst)))
-          (else #f)))
-  
   (filter (lambda (item)
-            (all? (lambda (f) (f item)) filters))
+            (andmap (lambda (f) (f item)) filters))
           lst))
+
 
 
 (line "filterList")
