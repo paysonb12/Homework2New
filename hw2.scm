@@ -188,8 +188,15 @@
 ; filters -- list of predicates to apply to the individual elements
 
 (define (filterList lst filters)
-	lst
-)
+  (define (all? pred lst)
+    (cond ((null? lst) #t)
+          ((pred (car lst)) (all? pred (cdr lst)))
+          (else #f)))
+  
+  (filter (lambda (item)
+            (all? (lambda (f) (f item)) filters))
+          lst))
+
 
 (line "filterList")
 (mydisplay (filterList '(1 2 3 11 22 33 -1 -2 -3 -11 -22 -33) (list POS?)))
