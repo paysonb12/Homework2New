@@ -149,8 +149,11 @@
 ; state -- state
 ; zips -- zipcode DB
 (define (zipCount state zips)
-	0
-)
+  (length (filter (lambda (zip)
+                    (equal? (caddr zip) state))
+                  zips)))
+
+
 
 (line "zipCount")
 (mydisplay (zipCount "OH" zipcodes))
